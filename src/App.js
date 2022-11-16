@@ -1,32 +1,61 @@
+import { useState } from "react";
 import Header from "./components/Header";
 import RegistrationForm from "./components/RegistrationForm";
 import StudentCard from "./components/StudentCard";
 
+
+
 function App() {
+
+  const [studentList, setStudentList] = useState([]);
+
+
+  const addStudentHandler = (name, email, websiteURL, imageURL, gender, skills) => {
+
+    setStudentList((prevUser) => {
+
+      return [...prevUser, {
+        id: Math.random().toString(),
+        name: name,
+        email: email,
+        websiteURL: websiteURL,
+        imageURL: imageURL,
+        ender: gender,
+        skills: skills
+      }];
+
+    })
+
+  }
+
+
+
   return (
     <div className="flex h-full md:h-screen flex-col bg-indigo-200 ">
       <Header />
       <div className=" h-full  flex flex-col md:grid md:grid-cols-12 overflow-y-hidden ">
         <div className="flex  md:items-center justify-center  py-8 md:py-2 md:px-10 md:col-span-4   ">
-          <RegistrationForm />
+          <RegistrationForm onAddStudent={addStudentHandler} />
 
         </div>
-        <div className=" flex flex-col items-center justify-center  gap-y-6 px-4 pt-10 pb-6 md:col-span-8 md:px-6 md:pt-10 md:pb-10 md:justify-items-center custom-scroll md:gap-6 md:border-l-[6px] md:border-indigo-500  md:overflow-y-scroll md:grid md:grid-cols-2  ">
-        
-          {/* <div className="absolute top-0 left-20 text-2xl text-center md:text-3xl text-gray-800 font-inter font-bold">
-               Enrolled Students
-          </div> */}
-          
-          <StudentCard />
-          <StudentCard />
-          <StudentCard />
-          <StudentCard />
-          <StudentCard />
-          <StudentCard />
-          <StudentCard />
-          <StudentCard />
-          
-          
+        <div className=" flex flex-col items-center justify-center  gap-y-6 px-4 pt-10 pb-6 md:col-span-8 md:px-6 md:pt-10 md:pb-10 md:items-start md:justify-items-center custom-scroll md:gap-6 md:border-l-[6px] md:border-indigo-500  md:overflow-y-scroll md:grid md:grid-cols-2  ">
+
+
+          {studentList.map((student) => (
+
+
+            <StudentCard
+              key={student.id}
+              name={student.name}
+              email={student.email}
+              websiteURL={student.websiteURL}
+              imageURL={student.imageURL}
+              gender={student.gender}
+              skills={student.skills} />
+
+          ))}
+
+
         </div>
       </div>
     </div>
