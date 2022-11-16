@@ -6,19 +6,19 @@ const RegistrationForm = () => {
             <form className="flex  flex-col w-[335px] px-6 py-6 sm:w-[380px] sm:px-6 sm:py-6 md:w-full md:px-8 md:py-10 rounded-xl shadow-2xl bg-gradient-to-r from-violet-500 to-indigo-500">
                 <div className="mb-4">
                     <label for="name" className="block mb-2 text-xs font-bold text-gray-100 ">Your Name</label>
-                    <input type="text" id="name" className="shadow-sm bg-gray-50 border-[4px] box-border  border-sky-500 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 outline-none placeholder:text-gray-400 placeholder:font-medium" placeholder="your name" required />
+                    <input type="text" id="name" className="shadow-sm bg-gray-50 border-[4px] box-border  border-sky-400 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 outline-none placeholder:text-gray-400 placeholder:font-medium" placeholder="your name" required />
                 </div>
                 <div className="mb-4">
                     <label for="email" className="block mb-2 text-xs font-bold text-gray-100 ">Your Email </label>
-                    <input type="email" id="email" className="shadow-sm bg-gray-50 border-[4px] box-border  border-sky-500 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 outline-none placeholder:text-gray-400 placeholder:font-medium" placeholder="name@example.com" required />
+                    <input type="email" id="email" className="shadow-sm bg-gray-50 border-[4px] box-border  border-sky-400 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 outline-none placeholder:text-gray-400 placeholder:font-medium" placeholder="name@example.com" required />
                 </div>
                 <div className="mb-4">
                     <label for="webiste-link" className="block mb-2 text-xs font-bold text-gray-100 ">Website URL</label>
-                    <input type="url" id="website-link" className="shadow-sm bg-gray-50 border-[4px] box-border  border-sky-500 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 outline-none placeholder:text-gray-400 placeholder:font-medium" placeholder="https://yourwebsite.com" required />
+                    <input type="url" id="website-link" className="shadow-sm bg-gray-50 border-[4px] box-border  border-sky-400 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 outline-none placeholder:text-gray-400 placeholder:font-medium" placeholder="https://yourwebsite.com" required />
                 </div>
                 <div className="mb-4">
                     <label for="image-link" className="block mb-2 text-xs font-bold text-gray-100 ">Image URL</label>
-                    <input type="url" id="image-link" className="shadow-sm bg-gray-50 border-[4px] box-border  border-sky-500 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  block w-full p-2.5 outline-none placeholder:text-gray-400 placeholder:font-medium" placeholder="https://imageurl.com" required />
+                    <input type="url" id="image-link" className="shadow-sm bg-gray-50 border-[4px] box-border  border-sky-400 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  block w-full p-2.5 outline-none placeholder:text-gray-400 placeholder:font-medium" placeholder="https://imageurl.com" required />
                 </div>
                 <fieldset className="flex space-x-12 mb-4 pt-2">
                 <div for="gender" className="block  text-sm font-medium text-gray-100 ">Gender</div>

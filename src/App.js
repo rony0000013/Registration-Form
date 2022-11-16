@@ -12,6 +12,11 @@ function App() {
 
         </div>
         <div className=" flex flex-col items-center justify-center  gap-y-6 px-4 pt-10 pb-6 md:col-span-8 md:px-6 md:pt-10 md:pb-10 md:justify-items-center custom-scroll md:gap-6 md:border-l-[6px] md:border-indigo-500  md:overflow-y-scroll md:grid md:grid-cols-2  ">
+        
+          {/* <div className="absolute top-0 left-20 text-2xl text-center md:text-3xl text-gray-800 font-inter font-bold">
+               Enrolled Students
+          </div> */}
+          
           <StudentCard />
           <StudentCard />
           <StudentCard />
@@ -20,6 +25,7 @@ function App() {
           <StudentCard />
           <StudentCard />
           <StudentCard />
+          
           
         </div>
       </div>
