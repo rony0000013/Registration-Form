@@ -20,7 +20,7 @@ function App() {
         email: email,
         websiteURL: websiteURL,
         imageURL: imageURL,
-        ender: gender,
+        gender: gender,
         skills: skills
       }];
 
@@ -41,19 +41,32 @@ function App() {
         <div className=" flex flex-col items-center justify-center  gap-y-6 px-4 pt-10 pb-6 md:col-span-8 md:px-6 md:pt-10 md:pb-10 md:items-start md:justify-items-center custom-scroll md:gap-6 md:border-l-[6px] md:border-indigo-500  md:overflow-y-scroll md:grid md:grid-cols-2  ">
 
 
-          {studentList.map((student) => (
+          {studentList.length !== 0 ? (
+            <>
+              {studentList.map((student) => (
 
 
-            <StudentCard
-              key={student.id}
-              name={student.name}
-              email={student.email}
-              websiteURL={student.websiteURL}
-              imageURL={student.imageURL}
-              gender={student.gender}
-              skills={student.skills} />
+                <StudentCard
+                  key={student.id}
+                  name={student.name}
+                  email={student.email}
+                  websiteURL={student.websiteURL}
+                  imageURL={student.imageURL}
+                  gender={student.gender}
+                  skills={student.skills} />
 
-          ))}
+              ))}
+            </>
+
+
+          ) : (
+            <div className="items-center justify-center w-full h-[400px] md:w-[900px] md:h-full flex md:-mr-[500px] border-4 border-dotted border-violet-500 ">
+                 <p className=" flex text-center font-inter font-semibold text-violet-700 text-2xl md:text-4xl">
+                  No Students Registered Yet 
+                 </p>
+            </div>
+            
+            )}
 
 
         </div>
