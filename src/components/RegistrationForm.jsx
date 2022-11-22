@@ -11,7 +11,6 @@ const RegistrationForm = ({ onAddStudent }) => {
         skills: []
     });
 
-    // const [skills, setSkills] = useState([]);
 
 
     const handleStudentChange = (e) => {
