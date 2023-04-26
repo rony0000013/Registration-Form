@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 
 const RegistrationForm = ({ onAddStudent }) => {
 
+    const [memberCount, setMemberCount] = useState(0)
+
     const [studentData, setStudentData] = useState({
         name: "",
         email: "",
@@ -39,7 +41,7 @@ const RegistrationForm = ({ onAddStudent }) => {
                     gender: prevValue.gender,
                     skills: prevValue.skills
                 };
-            } else if (inputName === "webURL") {
+            } else if (inputName === "teamName") {
                 return {
                     name: prevValue.name,
                     email: prevValue.email,
@@ -84,6 +86,7 @@ const RegistrationForm = ({ onAddStudent }) => {
 
         onAddStudent(studentData.name, studentData.email, studentData.websiteURL, studentData.imageURL, studentData.gender, studentData.skills);
         console.log(studentData);
+        setMemberCount(memberCount + 1);
 
     }
 
@@ -109,27 +112,48 @@ const RegistrationForm = ({ onAddStudent }) => {
         }
     }
 
+    
+
+    var name, team;
+    if (memberCount === 0){
+    name = <div className="mb-2">
+    
+        <label htmlFor="fName" className="block mb-1 text-s font-bold text-gray-100 ">Team Lead Name<span className='text-red-600'>*</span></label>
+        <input type="text" name="fName" value={studentData.name} onChange={handleStudentChange} className="shadow-sm bg-gray-50 border-[4px] box-border  border-sky-400 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 outline-none placeholder:text-gray-400 placeholder:font-medium" placeholder="Enter your Team-Lead name" required />
+    </div>
+
+    team = (<>
+    <div className="mb-2">
+        <label htmlFor="teamName" className="block mb-2 text-s font-bold text-gray-100 ">Team Name<span className='text-red-600'>*</span></label>
+        <input type="url" name="teamName" value={studentData.websiteURL} onChange={handleStudentChange} className="shadow-sm bg-gray-50 border-[4px] box-border  border-sky-400 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 outline-none placeholder:text-gray-400 placeholder:font-medium" placeholder="Some Thing Cool" required />
+    </div>
+    <div className="mb-2">
+        <label htmlFor="mobile" className="block mb-2 text-s font-bold text-gray-100 ">Mobile Number of Team Leader<span className='text-red-600'>*</span></label>
+        <input type="number" maxLength="10" minLength="10" name="mobile" value={studentData.mobile} onChange={handleStudentChange} className="shadow-sm bg-gray-50 border-[4px] box-border  border-sky-400 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 outline-none placeholder:text-gray-400 placeholder:font-medium" placeholder="+91-XXXXXXXXXX" required />
+    </div>
+    </>)
+    } else {
+    name = <div className="mb-2">
+        <label htmlFor="fName" className="block mb-1 text-s font-bold text-gray-100 ">Member {memberCount} Name<span className='text-red-600'>*</span></label>
+        <input type="text" name="fName" value={studentData.name} onChange={handleStudentChange} className="shadow-sm bg-gray-50 border-[4px] box-border  border-sky-400 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 outline-none placeholder:text-gray-400 placeholder:font-medium" placeholder={`Enter your Member ${memberCount} name`} required />
+    </div>
+
+    team = null;
+    }
 
 
     return (
         <>
             <form className="flex accent-blue-600 flex-col w-[335px] px-4 py-4 sm:w-[380px] sm:px-6 sm:py-6 md:w-full md:px-8 md:py-10 rounded-xl shadow-2xl bg-gradient-to-r from-violet-500 to-indigo-500">
-                <div className="mb-2">
-                    <label htmlFor="fName" className="block mb-1 text-s font-bold text-gray-100 ">Team Lead Name<span className='text-red-600'>*</span></label>
-                    <input type="text" name="fName" value={studentData.name} onChange={handleStudentChange} className="shadow-sm bg-gray-50 border-[4px] box-border  border-sky-400 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 outline-none placeholder:text-gray-400 placeholder:font-medium" placeholder="Enter your Team-Lead name" required />
-                </div>
+                {name}
+                    
                 <div className="mb-2">
                     <label htmlFor="Email" className="block mb-2 text-s font-bold text-gray-100 ">Your Email (AOT Mail)<span className='text-red-600'>*</span></label>
                     <input type="email" name="Email" value={studentData.email} onChange={handleStudentChange} className="shadow-sm bg-gray-50 border-[4px] box-border  border-sky-400 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 outline-none placeholder:text-gray-400 placeholder:font-medium" placeholder="name@aot.edu.in" required />
                 </div>
-                <div className="mb-2">
-                    <label htmlFor="teamName" className="block mb-2 text-s font-bold text-gray-100 ">Team Name<span className='text-red-600'>*</span></label>
-                    <input type="url" name="teamName" value={studentData.websiteURL} onChange={handleStudentChange} className="shadow-sm bg-gray-50 border-[4px] box-border  border-sky-400 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 outline-none placeholder:text-gray-400 placeholder:font-medium" placeholder="Some Thing Cool" required />
-                </div>
-                <div className="mb-2">
-                    <label htmlFor="mobile" className="block mb-2 text-s font-bold text-gray-100 ">Mobile Number of Team Leader<span className='text-red-600'>*</span></label>
-                    <input type="number" maxLength="10" minLength="10" name="mobile" value={studentData.mobile} onChange={handleStudentChange} className="shadow-sm bg-gray-50 border-[4px] box-border  border-sky-400 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 outline-none placeholder:text-gray-400 placeholder:font-medium" placeholder="+91-XXXXXXXXXX" required />
-                </div>
+                
+                {team}
+                
                 <div className="mb-2">
                     <label htmlFor="teamName" className="block mb-2 text-s font-bold text-gray-100 ">Branch<span className='text-red-600'>*</span></label>
                     <select onChange={handleStudentChange} placeholder='CSBS'  className='shadow-sm bg-gray-50 border-[4px] box-border  border-sky-400 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 outline-none placeholder:text-gray-400 placeholder:font-medium'>
