@@ -10,7 +10,7 @@ function App() {
   const [studentList, setStudentList] = useState([]);
 
 
-  const addStudentHandler = (name, email, websiteURL, imageURL, gender, skills) => {
+  const addStudentHandler = (name, email, teamName, gender, mobile, branch, year) => {
 
     setStudentList((prevUser) => {
 
@@ -18,10 +18,11 @@ function App() {
         id: Math.random().toString(),
         name: name,
         email: email,
-        websiteURL: websiteURL,
-        imageURL: imageURL,
+        teamName: teamName,
         gender: gender,
-        skills: skills
+        mobile: mobile,
+        branch: branch,
+        year: year,
       }];
 
     })
@@ -50,10 +51,9 @@ function App() {
                   key={student.id}
                   name={student.name}
                   email={student.email}
-                  websiteURL={student.websiteURL}
-                  imageURL={student.imageURL}
                   gender={student.gender}
-                  skills={student.skills} />
+                  branch={student.branch}
+                  year={student.year} />
 
               ))}
             </>

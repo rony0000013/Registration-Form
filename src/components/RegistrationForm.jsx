@@ -9,7 +9,7 @@ const RegistrationForm = ({ onAddStudent }) => {
         email: "",
         teamName: "",
         gender: "",
-        mobile: 0,
+        mobile: "",
         branch: "",
         year: "",
     });
@@ -35,8 +35,8 @@ const RegistrationForm = ({ onAddStudent }) => {
                 };
             } else if (inputName === "Email") {
                 return {
-                    name: newValue,
-                    email: prevValue.email,
+                    name: prevValue.name,
+                    email: newValue,
                     teamName: prevValue.teamName,
                     gender: prevValue.gender,
                     mobile: prevValue.mobile,
@@ -45,21 +45,21 @@ const RegistrationForm = ({ onAddStudent }) => {
                 };
             } else if (inputName === "teamName") {
                 return {
-                    name: newValue,
+                    name: prevValue.name,
                     email: prevValue.email,
-                    teamName: prevValue.teamName,
+                    teamName: newValue,
                     gender: prevValue.gender,
                     mobile: prevValue.mobile,
                     branch: prevValue.branch,
                     year: prevValue.year,
                 };
-            } else if (inputName === "imageURL") {
+            } else if (inputName === "mobile") {
                 return {
-                    name: newValue,
+                    name: prevValue.name,
                     email: prevValue.email,
                     teamName: prevValue.teamName,
                     gender: prevValue.gender,
-                    mobile: prevValue.mobile,
+                    mobile: newValue,
                     branch: prevValue.branch,
                     year: prevValue.year,
                 }
@@ -76,10 +76,41 @@ const RegistrationForm = ({ onAddStudent }) => {
                 return {
                     name: prevValue.name,
                     email: prevValue.email,
+                    teamName: prevValue.teamName,
                     gender: studentGender,
-                    skills: prevValue.skills
+                    mobile: prevValue.mobile,
+                    branch: prevValue.branch,
+                    year: prevValue.year,
                 }
-            } 
+            } else if (inputName === "year") {
+                const { value, checked } = e.target;
+
+                let yearSeleted;
+
+                if (checked) {
+                    yearSeleted = value;
+                }
+                return {
+                    name: prevValue.name,
+                    email: prevValue.email,
+                    teamName: prevValue.teamName,
+                    gender: prevValue.gender,
+                    mobile: prevValue.mobile,
+                    branch: prevValue.branch,
+                    year: yearSeleted,
+                }
+
+            } else if (inputName === "branch") {
+                return {
+                    name: prevValue.name,
+                    email: prevValue.email,
+                    teamName: prevValue.teamName,
+                    gender: prevValue.gender,
+                    mobile: prevValue.mobile,
+                    branch: newValue,
+                    year: prevValue.year,
+                }
+            }
         });
 
     };
@@ -88,7 +119,7 @@ const RegistrationForm = ({ onAddStudent }) => {
 
     const handleOnClick = () => {
 
-        onAddStudent(studentData.name, studentData.email, studentData.websiteURL, studentData.imageURL, studentData.gender, studentData.skills);
+        onAddStudent(studentData.name, studentData.email, studentData.teamName, studentData.gender, studentData.mobile, studentData.branch, studentData.year);
         console.log(studentData);
         setMemberCount(memberCount + 1);
 
@@ -106,13 +137,13 @@ const RegistrationForm = ({ onAddStudent }) => {
         });
 
         let radiosy = document.getElementsByName('year');
-        for (let i = 0; i < radios.length; i++) {
+        for (let i = 0; i < radiosy.length; i++) {
             radiosy[i].checked = false;
         }
         
 
         let radiosg = document.getElementsByName('gender');
-        for (let i = 0; i < radios.length; i++) {
+        for (let i = 0; i < radiosg.length; i++) {
            radiosg[i].checked = false;
              
         }
@@ -135,7 +166,7 @@ const RegistrationForm = ({ onAddStudent }) => {
     </div>
     <div className="mb-2">
         <label htmlFor="mobile" className="block mb-2 text-s font-bold text-gray-100 ">Mobile Number of Team Leader<span className='text-red-600'>*</span></label>
-        <input type="number" maxLength="10" minLength="10" name="mobile" value={studentData.mobile} onChange={handleStudentChange} className="shadow-sm bg-gray-50 border-[4px] box-border  border-sky-400 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 outline-none placeholder:text-gray-400 placeholder:font-medium" placeholder="+91-XXXXXXXXXX" required />
+        <input type="tel" maxLength="10" minLength="10" name="mobile" value={studentData.mobile} onChange={handleStudentChange} className="shadow-sm bg-gray-50 border-[4px] box-border  border-sky-400 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 outline-none placeholder:text-gray-400 placeholder:font-medium" placeholder="+91-XXXXXXXXXX" required />
     </div>
     </>)
     } else {
@@ -155,14 +186,14 @@ const RegistrationForm = ({ onAddStudent }) => {
                     
                 <div className="mb-2">
                     <label htmlFor="Email" className="block mb-2 text-s font-bold text-gray-100 ">Your Email (AOT Mail)<span className='text-red-600'>*</span></label>
-                    <input type="email" name="Email" value={studentData.email} onChange={handleStudentChange} className="shadow-sm bg-gray-50 border-[4px] box-border  border-sky-400 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 outline-none placeholder:text-gray-400 placeholder:font-medium" placeholder="name@aot.edu.in" required />
+                    <input type="email" name="Email" value={studentData.email} onChange={handleStudentChange} className="shadow-sm bg-gray-50 border-[4px] box-border  border-sky-400 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 outline-none placeholder:text-gray-400 placeholder:font-medium" placeholder="name@aot.edu.in" pattern="^([a-zA-Z0-9_\-\.]+)@aot.edu.in$" required />
                 </div>
                 
                 {team}
                 
                 <div className="mb-2">
                     <label htmlFor="branch" className="block mb-2 text-s font-bold text-gray-100 ">Branch<span className='text-red-600'>*</span></label>
-                    <select onChange={handleStudentChange} placeholder='CSBS' name='branch'  className='shadow-sm bg-gray-50 border-[4px] box-border  border-sky-400 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 outline-none placeholder:text-gray-400 placeholder:font-medium'>
+                    <select onChange={handleStudentChange} placeholder='CSBS' name='branch'  className='shadow-sm bg-gray-50 border-[4px] box-border  border-sky-400 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 outline-none placeholder:text-gray-400 placeholder:font-medium' required >
                         <option value="CSE">CSE</option>
                         <option value="CSBS">CSBS</option>
                         <option value="ECE">ECE</option>
@@ -173,31 +204,31 @@ const RegistrationForm = ({ onAddStudent }) => {
                 </div>
 
                 <div className="mb-2">
-                    <label htmlFor="year" className="block mb-2 text-s font-bold text-gray-100 ">Year<span className='text-red-600'>*</span></label>
+                    <label htmlFor="year" className="block mb-2 text-s font-bold text-gray-100 " required >Year<span className='text-red-600'>*</span></label>
                     <div className="flex flex-row items-center justify-around gap-2">
                         <div className="flex items-center mb-2">
-                            <input id="year-1" type="radio" name="year" value="year-1" onChange={handleStudentChange} defaultChecked={false} className="w-4 h-4   " />
+                            <input id="year-1" type="radio" name="year" value="1st Year" onChange={handleStudentChange} defaultChecked={false} className="w-4 h-4   " />
                             <label htmlFor="year-1" className="block ml-2 text-sm font-medium text-gray-300">
                                 1st
                             </label>
                         </div>
 
                         <div className="flex items-center mb-2">
-                            <input id="year-2" type="radio" name="year" value="year-2" onChange={handleStudentChange} defaultChecked={false} className="w-4 h-4  " />
+                            <input id="year-2" type="radio" name="year" value="2nd Year" onChange={handleStudentChange} defaultChecked={false} className="w-4 h-4  " />
                             <label htmlFor="year-2" className="block ml-2 text-sm font-medium text-gray-300">
                                 2nd
                             </label>
                         </div>
 
                         <div className="flex items-center mb-2">
-                            <input id="year-3" type="radio" name="year" value="year-3" onChange={handleStudentChange} defaultChecked={false} className="w-4 h-4  " />
+                            <input id="year-3" type="radio" name="year" value="3rd Year" onChange={handleStudentChange} defaultChecked={false} className="w-4 h-4  " />
                             <label htmlFor="year-3" className="block ml-2 text-sm font-medium text-gray-300">
                                 3rd
                             </label>
                         </div>
 
                         <div className="flex items-center mb-2">
-                            <input id="year-4" type="radio" name="year" value="year-4" onChange={handleStudentChange} defaultChecked={false} className="w-4 h-4  " />
+                            <input id="year-4" type="radio" name="year" value="4th Year" onChange={handleStudentChange} defaultChecked={false} className="w-4 h-4  " />
                             <label htmlFor="year-4" className="block ml-2 text-sm font-medium text-gray-300">
                                 4th
                             </label>
@@ -207,7 +238,7 @@ const RegistrationForm = ({ onAddStudent }) => {
 
                 <div className="flex space-x-12 mb-2 pt-2">
                 
-                    <div className="block  text-s font-medium text-gray-100 ">Gender<span className='text-red-600'>*</span></div>
+                    <div className="block  text-s font-medium text-gray-100 " required >Gender<span className='text-red-600'>*</span></div>
 
                     <div className="flex items-center mb-2">
                         <input id="gender-male" type="radio" name="gender" value="Male" onChange={handleStudentChange} defaultChecked={false} className="w-4 h-4   " />
