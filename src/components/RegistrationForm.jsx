@@ -126,53 +126,9 @@ const RegistrationForm = ({ onAddStudent }) => {
                     <label htmlFor="teamName" className="block mb-2 text-s font-bold text-gray-100 ">Team Name<span className='text-red-600'>*</span></label>
                     <input type="url" name="teamName" value={studentData.websiteURL} onChange={handleStudentChange} className="shadow-sm bg-gray-50 border-[4px] box-border  border-sky-400 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 outline-none placeholder:text-gray-400 placeholder:font-medium" placeholder="Some Thing Cool" required />
                 </div>
-                <div className="mb-2">
-                    <label htmlFor="mobile" className="block mb-2 text-s font-bold text-gray-100 ">Mobile Number of Team Leader<span className='text-red-600'>*</span></label>
-                    <input type="number" maxLength="10" minLength="10" name="mobile" value={studentData.mobile} onChange={handleStudentChange} className="shadow-sm bg-gray-50 border-[4px] box-border  border-sky-400 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 outline-none placeholder:text-gray-400 placeholder:font-medium" placeholder="+91-XXXXXXXXXX" required />
-                </div>
-                <div className="mb-2">
-                    <label htmlFor="teamName" className="block mb-2 text-s font-bold text-gray-100 ">Branch<span className='text-red-600'>*</span></label>
-                    <select onChange={handleStudentChange} placeholder='CSBS'  className='shadow-sm bg-gray-50 border-[4px] box-border  border-sky-400 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 outline-none placeholder:text-gray-400 placeholder:font-medium'>
-                        <option value="CSE">CSE</option>
-                        <option value="CSBS">CSBS</option>
-                        <option value="ECE">ECE</option>
-                        <option value="EEE">EEE</option>
-                        <option value="EE">EE</option>
-                        <option value="ME">ME</option>
-                    </select>
-                </div>
-
-                <div className="mb-2">
-                    <label htmlFor="teamName" className="block mb-2 text-s font-bold text-gray-100 ">Year<span className='text-red-600'>*</span></label>
-                    <div className="flex flex-row items-center justify-around gap-2">
-                        <div className="flex items-center mb-2">
-                            <input id="gender-male" type="radio" name="gender" value="Male" onChange={handleStudentChange} defaultChecked={false} className="w-4 h-4   " />
-                            <label htmlFor="gender-male" className="block ml-2 text-sm font-medium text-gray-300">
-                                1st
-                            </label>
-                        </div>
-
-                        <div className="flex items-center mb-2">
-                            <input id="gender-female" type="radio" name="gender" value="Female" onChange={handleStudentChange} defaultChecked={false} className="w-4 h-4  " />
-                            <label htmlFor="gender-female" className="block ml-2 text-sm font-medium text-gray-300">
-                                2nd
-                            </label>
-                        </div>
-
-                        <div className="flex items-center mb-2">
-                            <input id="gender-female" type="radio" name="gender" value="Female" onChange={handleStudentChange} defaultChecked={false} className="w-4 h-4  " />
-                            <label htmlFor="gender-female" className="block ml-2 text-sm font-medium text-gray-300">
-                                3rd
-                            </label>
-                        </div>
-
-                        <div className="flex items-center mb-2">
-                            <input id="gender-female" type="radio" name="gender" value="Female" onChange={handleStudentChange} defaultChecked={false} className="w-4 h-4  " />
-                            <label htmlFor="gender-female" className="block ml-2 text-sm font-medium text-gray-300">
-                                4th
-                            </label>
-                        </div>
-                    </div>
+                <div className="mb-4">
+                    <label htmlFor="mobile" className="block mb-2 text-xs font-bold text-gray-100 ">Mobile Number of Team Leader<span className='text-red-600'>*</span></label>
+                    <input type="text" name="mobile" value={studentData.email} onChange={handleStudentChange} className="shadow-sm bg-gray-50 border-[4px] box-border  border-sky-400 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 outline-none placeholder:text-gray-400 placeholder:font-medium" placeholder="+91-XXXXXXXXXX" required />
                 </div>
 
                 <div className="flex space-x-12 mb-2 pt-2">
