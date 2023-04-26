@@ -146,15 +146,15 @@ const RegistrationForm = ({ onAddStudent }) => {
         <>
             <form className="flex accent-blue-600 flex-col w-[335px] px-6 py-6 sm:w-[380px] sm:px-6 sm:py-6 md:w-full md:px-8 md:py-10 rounded-xl shadow-2xl bg-gradient-to-r from-violet-500 to-indigo-500">
                 <div className="mb-4">
-                    <label htmlFor="fName" className="block mb-2 text-xs font-bold text-gray-100 ">Your Name</label>
+                    <label htmlFor="fName" className="block mb-2 text-xs font-bold text-gray-100 ">Your Name<span className='text-red-600'>*</span></label>
                     <input type="text" name="fName" value={studentData.name} onChange={handleStudentChange} className="shadow-sm bg-gray-50 border-[4px] box-border  border-sky-400 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 outline-none placeholder:text-gray-400 placeholder:font-medium" placeholder="your name" required />
                 </div>
                 <div className="mb-4">
-                    <label htmlFor="Email" className="block mb-2 text-xs font-bold text-gray-100 ">Your Email </label>
-                    <input type="email" name="Email" value={studentData.email} onChange={handleStudentChange} className="shadow-sm bg-gray-50 border-[4px] box-border  border-sky-400 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 outline-none placeholder:text-gray-400 placeholder:font-medium" placeholder="name@example.com" required />
+                    <label htmlFor="Email" className="block mb-2 text-xs font-bold text-gray-100 ">Your Email (AOT Mail)<span className='text-red-600'>*</span></label>
+                    <input type="email" name="Email" value={studentData.email} onChange={handleStudentChange} className="shadow-sm bg-gray-50 border-[4px] box-border  border-sky-400 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 outline-none placeholder:text-gray-400 placeholder:font-medium" placeholder="name@aot.edu.in" required />
                 </div>
                 <div className="mb-4">
-                    <label htmlFor="webURL" className="block mb-2 text-xs font-bold text-gray-100 ">Website URL</label>
+                    <label htmlFor="webURL" className="block mb-2 text-xs font-bold text-gray-100 ">Team Name</label>
                     <input type="url" name="webURL" value={studentData.websiteURL} onChange={handleStudentChange} className="shadow-sm bg-gray-50 border-[4px] box-border  border-sky-400 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 outline-none placeholder:text-gray-400 placeholder:font-medium" placeholder="https://yourwebsite.com" required />
                 </div>
                 <div className="mb-4">
