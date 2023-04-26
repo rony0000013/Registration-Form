@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 
 const RegistrationForm = ({ onAddStudent }) => {
 
-    const [memberCount, setMemberCount] = useState(0)
-
+    const [memberCount, setMemberCount] = useState(0);
+    const [pay, setPay] = useState(0);
     const [studentData, setStudentData] = useState({
         name: "",
         email: "",
@@ -116,7 +116,6 @@ const RegistrationForm = ({ onAddStudent }) => {
     };
 
 
-
     const handleOnClick = () => {
 
         onAddStudent(studentData.name, studentData.email, studentData.teamName, studentData.gender, studentData.mobile, studentData.branch, studentData.year);
@@ -149,9 +148,17 @@ const RegistrationForm = ({ onAddStudent }) => {
         }
     }
 
-    
+    const handleSubmit = () => {
+        console.log("Payment");
+        
+        setPay(1);
+    }
 
-    var name, team;
+
+
+
+    var name, team, submit;
+
     if (memberCount === 0){
     name = <div className="mb-2">
     
@@ -179,6 +186,14 @@ const RegistrationForm = ({ onAddStudent }) => {
     }
 
 
+
+    if (memberCount >= 2){
+        submit =  <button onClick={handleSubmit} type="button" className="text-white bg-green-500 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-6 py-2 text-center ">Submit</button>
+    }
+
+
+
+    if (memberCount <= 3 && !pay){
     return (
         <>
             <form className="flex accent-blue-600 flex-col w-[335px] px-4 py-4 sm:w-[380px] sm:px-6 sm:py-6 md:w-full md:px-8 md:py-10 rounded-xl shadow-2xl bg-gradient-to-r from-violet-500 to-indigo-500">
@@ -255,15 +270,31 @@ const RegistrationForm = ({ onAddStudent }) => {
                     </div>
                 </div>
 
-
-                <div className="flex justify-between">
+                
+                <div className="flex justify-between mb-2">
 
                     <button onClick={handleOnClick} type="button" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-6 py-2 text-center ">Add Member</button>
                     <button onClick={handleClearFields} type="button" className="text-white bg-rose-700 hover:bg-rose-800 focus:ring-4 focus:outline-none focus:ring-rose-300 font-medium rounded-lg text-sm px-6 py-2 text-center ">Clear</button>
                 </div>
+
+                {submit}
+
             </form>
         </>
     )
+    } else {
+        return (<>
+            <div className="flex accent-blue-600 flex-col w-[335px] px-4 py-4 sm:w-[380px] sm:px-6 sm:py-6 md:w-full md:px-8 md:py-10 rounded-xl shadow-2xl bg-gradient-to-r from-violet-500 to-indigo-500">
+                <h1 className='block mb-2 font-bold text-red-500 text-2xl text-center'>Team - {studentData.teamName}</h1>
+                <h1 className='block mb-2 font-bold text-gray-100 text-2xl text-center'>Pay the way you want</h1>
+
+                <h3 className='font-bold text-xl text-gray-100'>GPAY</h3>
+                <img src={"https://upload.wikimedia.org/wikipedia/commons/d/d0/QR_code_for_mobile_English_Wikipedia.svg"} alt="QR Code" />
+
+                <h3 className='font-bold text-xl text-gray-100'>Or Cash</h3>
+            </div>
+        </>);
+    }
 }
 
 export default RegistrationForm
