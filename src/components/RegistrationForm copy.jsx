@@ -27,37 +27,41 @@ const RegistrationForm = ({ onAddStudent }) => {
                 return {
                     name: newValue,
                     email: prevValue.email,
-                    
-                    
+                    teamName: prevValue.teamName,
                     gender: prevValue.gender,
-                    skills: prevValue.skills
+                    mobile: prevValue.mobile,
+                    branch: prevValue.branch,
+                    year: prevValue.year,
                 };
             } else if (inputName === "Email") {
                 return {
-                    name: prevValue.name,
-                    email: newValue,
-                    
-                    
+                    name: newValue,
+                    email: prevValue.email,
+                    teamName: prevValue.teamName,
                     gender: prevValue.gender,
-                    skills: prevValue.skills
+                    mobile: prevValue.mobile,
+                    branch: prevValue.branch,
+                    year: prevValue.year,
                 };
             } else if (inputName === "teamName") {
                 return {
-                    name: prevValue.name,
+                    name: newValue,
                     email: prevValue.email,
-                    
-                    
+                    teamName: prevValue.teamName,
                     gender: prevValue.gender,
-                    skills: prevValue.skills
+                    mobile: prevValue.mobile,
+                    branch: prevValue.branch,
+                    year: prevValue.year,
                 };
             } else if (inputName === "imageURL") {
                 return {
-                    name: prevValue.name,
+                    name: newValue,
                     email: prevValue.email,
-                    
-                    
+                    teamName: prevValue.teamName,
                     gender: prevValue.gender,
-                    skills: prevValue.skills
+                    mobile: prevValue.mobile,
+                    branch: prevValue.branch,
+                    year: prevValue.year,
                 }
             } else if (inputName === "gender") {
 
@@ -94,20 +98,22 @@ const RegistrationForm = ({ onAddStudent }) => {
         setStudentData({
             name: "",
             email: "",
-
+            teamName: "",
             gender: "",
-            skills: []
+            mobile: 0,
+            branch: "",
+            year: "",
         });
 
-        let checkBox = document.getElementsByName('check-box');
-        for (let i = 0; i < checkBox.length; i++) {
-            checkBox[i].checked =false;
+        let radiosy = document.getElementsByName('year');
+        for (let i = 0; i < radios.length; i++) {
+            radiosy[i].checked = false;
         }
         
 
-        let radios = document.getElementsByName('gender');
+        let radiosg = document.getElementsByName('gender');
         for (let i = 0; i < radios.length; i++) {
-           radios[i].checked = false;
+           radiosg[i].checked = false;
              
         }
     }
@@ -125,7 +131,7 @@ const RegistrationForm = ({ onAddStudent }) => {
     team = (<>
     <div className="mb-2">
         <label htmlFor="teamName" className="block mb-2 text-s font-bold text-gray-100 ">Team Name<span className='text-red-600'>*</span></label>
-        <input type="url" name="teamName" value={studentData.websiteURL} onChange={handleStudentChange} className="shadow-sm bg-gray-50 border-[4px] box-border  border-sky-400 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 outline-none placeholder:text-gray-400 placeholder:font-medium" placeholder="Some Thing Cool" required />
+        <input type="url" name="teamName" value={studentData.teamName} onChange={handleStudentChange} className="shadow-sm bg-gray-50 border-[4px] box-border  border-sky-400 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 outline-none placeholder:text-gray-400 placeholder:font-medium" placeholder="Some Thing Cool" required />
     </div>
     <div className="mb-2">
         <label htmlFor="mobile" className="block mb-2 text-s font-bold text-gray-100 ">Mobile Number of Team Leader<span className='text-red-600'>*</span></label>
@@ -155,8 +161,8 @@ const RegistrationForm = ({ onAddStudent }) => {
                 {team}
                 
                 <div className="mb-2">
-                    <label htmlFor="teamName" className="block mb-2 text-s font-bold text-gray-100 ">Branch<span className='text-red-600'>*</span></label>
-                    <select onChange={handleStudentChange} placeholder='CSBS'  className='shadow-sm bg-gray-50 border-[4px] box-border  border-sky-400 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 outline-none placeholder:text-gray-400 placeholder:font-medium'>
+                    <label htmlFor="branch" className="block mb-2 text-s font-bold text-gray-100 ">Branch<span className='text-red-600'>*</span></label>
+                    <select onChange={handleStudentChange} placeholder='CSBS' name='branch'  className='shadow-sm bg-gray-50 border-[4px] box-border  border-sky-400 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 outline-none placeholder:text-gray-400 placeholder:font-medium'>
                         <option value="CSE">CSE</option>
                         <option value="CSBS">CSBS</option>
                         <option value="ECE">ECE</option>
@@ -167,32 +173,32 @@ const RegistrationForm = ({ onAddStudent }) => {
                 </div>
 
                 <div className="mb-2">
-                    <label htmlFor="teamName" className="block mb-2 text-s font-bold text-gray-100 ">Year<span className='text-red-600'>*</span></label>
+                    <label htmlFor="year" className="block mb-2 text-s font-bold text-gray-100 ">Year<span className='text-red-600'>*</span></label>
                     <div className="flex flex-row items-center justify-around gap-2">
                         <div className="flex items-center mb-2">
-                            <input id="gender-male" type="radio" name="gender" value="Male" onChange={handleStudentChange} defaultChecked={false} className="w-4 h-4   " />
-                            <label htmlFor="gender-male" className="block ml-2 text-sm font-medium text-gray-300">
+                            <input id="year-1" type="radio" name="year" value="year-1" onChange={handleStudentChange} defaultChecked={false} className="w-4 h-4   " />
+                            <label htmlFor="year-1" className="block ml-2 text-sm font-medium text-gray-300">
                                 1st
                             </label>
                         </div>
 
                         <div className="flex items-center mb-2">
-                            <input id="gender-female" type="radio" name="gender" value="Female" onChange={handleStudentChange} defaultChecked={false} className="w-4 h-4  " />
-                            <label htmlFor="gender-female" className="block ml-2 text-sm font-medium text-gray-300">
+                            <input id="year-2" type="radio" name="year" value="year-2" onChange={handleStudentChange} defaultChecked={false} className="w-4 h-4  " />
+                            <label htmlFor="year-2" className="block ml-2 text-sm font-medium text-gray-300">
                                 2nd
                             </label>
                         </div>
 
                         <div className="flex items-center mb-2">
-                            <input id="gender-female" type="radio" name="gender" value="Female" onChange={handleStudentChange} defaultChecked={false} className="w-4 h-4  " />
-                            <label htmlFor="gender-female" className="block ml-2 text-sm font-medium text-gray-300">
+                            <input id="year-3" type="radio" name="year" value="year-3" onChange={handleStudentChange} defaultChecked={false} className="w-4 h-4  " />
+                            <label htmlFor="year-3" className="block ml-2 text-sm font-medium text-gray-300">
                                 3rd
                             </label>
                         </div>
 
                         <div className="flex items-center mb-2">
-                            <input id="gender-female" type="radio" name="gender" value="Female" onChange={handleStudentChange} defaultChecked={false} className="w-4 h-4  " />
-                            <label htmlFor="gender-female" className="block ml-2 text-sm font-medium text-gray-300">
+                            <input id="year-4" type="radio" name="year" value="year-4" onChange={handleStudentChange} defaultChecked={false} className="w-4 h-4  " />
+                            <label htmlFor="year-4" className="block ml-2 text-sm font-medium text-gray-300">
                                 4th
                             </label>
                         </div>
