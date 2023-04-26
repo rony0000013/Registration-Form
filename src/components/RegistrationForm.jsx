@@ -5,9 +5,9 @@ const RegistrationForm = ({ onAddStudent }) => {
     const [studentData, setStudentData] = useState({
         name: "",
         email: "",
-        websiteURL: "",
+        teamName: "",
         gender: "",
-
+        mobile: "",
     });
 
 
@@ -133,8 +133,8 @@ const RegistrationForm = ({ onAddStudent }) => {
                     <input type="email" name="Email" value={studentData.email} onChange={handleStudentChange} className="shadow-sm bg-gray-50 border-[4px] box-border  border-sky-400 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 outline-none placeholder:text-gray-400 placeholder:font-medium" placeholder="name@aot.edu.in" required />
                 </div>
                 <div className="mb-4">
-                    <label htmlFor="webURL" className="block mb-2 text-xs font-bold text-gray-100 ">Team Name<span className='text-red-600'>*</span></label>
-                    <input type="url" name="webURL" value={studentData.websiteURL} onChange={handleStudentChange} className="shadow-sm bg-gray-50 border-[4px] box-border  border-sky-400 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 outline-none placeholder:text-gray-400 placeholder:font-medium" placeholder="Some Thing Cool" required />
+                    <label htmlFor="teamName" className="block mb-2 text-xs font-bold text-gray-100 ">Team Name<span className='text-red-600'>*</span></label>
+                    <input type="url" name="teamName" value={studentData.websiteURL} onChange={handleStudentChange} className="shadow-sm bg-gray-50 border-[4px] box-border  border-sky-400 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 outline-none placeholder:text-gray-400 placeholder:font-medium" placeholder="Some Thing Cool" required />
                 </div>
                 {/* <div className="mb-4">
                     <label htmlFor="imageURL" className="block mb-2 text-xs font-bold text-gray-100 ">Image URL</label>
@@ -142,7 +142,7 @@ const RegistrationForm = ({ onAddStudent }) => {
                 </div> */}
                 <div className="mb-4">
                     <label htmlFor="mobile" className="block mb-2 text-xs font-bold text-gray-100 ">Mobile Number of Team Leader<span className='text-red-600'>*</span></label>
-                    <input type="text" name="mobile" value={studentData.email} onChange={handleStudentChange} className="shadow-sm bg-gray-50 border-[4px] box-border  border-sky-400 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 outline-none placeholder:text-gray-400 placeholder:font-medium" placeholder="XXXXXXXXXX" required />
+                    <input type="text" name="mobile" value={studentData.email} onChange={handleStudentChange} className="shadow-sm bg-gray-50 border-[4px] box-border  border-sky-400 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 outline-none placeholder:text-gray-400 placeholder:font-medium" placeholder="+91-XXXXXXXXXX" required />
                 </div>
                 <div className="flex space-x-12 mb-4 pt-2">
                 
