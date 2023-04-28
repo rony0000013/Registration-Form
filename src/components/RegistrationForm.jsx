@@ -208,7 +208,7 @@ const RegistrationForm = ({ onAddStudent }) => {
                 
                 <div className="mb-2">
                     <label htmlFor="branch" className="block mb-2 text-s font-bold text-gray-100 ">Branch<span className='text-red-600'>*</span></label>
-                    <select onChange={handleStudentChange} placeholder='CSBS' name='branch'  className='shadow-sm bg-gray-50 border-[4px] box-border  border-sky-400 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 outline-none placeholder:text-gray-400 placeholder:font-medium' required >
+                    <select onChange={handleStudentChange} placeholder="CSBS" name='branch'  className='shadow-sm bg-gray-50 border-[4px] box-border  border-sky-400 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 outline-none placeholder:text-gray-400 placeholder:font-medium' required >
                         <option value="CSE">CSE</option>
                         <option value="CSBS">CSBS</option>
                         <option value="ECE">ECE</option>
