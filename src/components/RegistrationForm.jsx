@@ -285,10 +285,10 @@ const RegistrationForm = ({ onAddStudent }) => {
     } else {
         return (<>
             <div className="flex accent-blue-600 flex-col w-[335px] px-4 py-4 sm:w-[380px] sm:px-6 sm:py-6 md:w-full md:px-8 md:py-10 rounded-xl shadow-2xl bg-gradient-to-r from-violet-500 to-indigo-500">
-                <h1 className='block mb-2 font-bold text-red-500 text-2xl text-center'>Team - {studentData.teamName}</h1>
+                <h1 className='block mb-2 font-bold text-red-500 text-2xl text-center drop-shadow-lg'>Team - {studentData.teamName}</h1>
                 <h1 className='block mb-2 font-bold text-gray-100 text-2xl text-center'>Pay the way you want</h1>
 
-                <h3 className='font-bold text-xl text-gray-100'>GPAY</h3>
+                <h3 className='font-bold text-xl text-gray-100'>Online Mode</h3>
                 <img src={"https://upload.wikimedia.org/wikipedia/commons/d/d0/QR_code_for_mobile_English_Wikipedia.svg"} alt="QR Code" />
 
                 <h3 className='font-bold text-xl text-gray-100'>Or Cash</h3>
